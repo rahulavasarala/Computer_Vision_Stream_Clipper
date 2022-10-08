@@ -1,0 +1,50 @@
+#This is the muthaphuckin docker-compose file
+
+version: '3.9'
+
+services:
+
+  rtsp-runner: 
+
+    build: 
+      context: ./rtsp_service
+      dockerfile: rss_ff.dockerfile
+
+    ports:
+      - "8554:8554"
+
+
+  dlstreamer:
+    build: 
+      context: ./dlstreamer_service
+      dockerfile: dlstreamer.dockerfile
+
+    privileged: true
+
+    network_mode: "host"
+
+    volumes: 
+      - /home/rahul/Desktop/stream_clip_app2/graphic_app:/home/dlstreamer/graphic_app
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+    
+
+    
+
+#This is the proper formatting of a docker compose file
+
+#Forced to try the volume stuff later, will just copy the files to get access to them now
+#Manually do the ports to connect the containers
+    
